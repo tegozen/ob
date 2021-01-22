@@ -1,0 +1,65 @@
+$Gab: "Gabriela";
+
+body {
+  font-family: $Gab;
+}
+
+$texts: (
+  "h1": (
+    "font-family": $Gab,
+    "font-size": 36px,
+    "font-style": normal,
+    "font-weight": 400,
+    "line-height": 46px,
+    "letter-spacing": 0em,
+    "text-align": center,
+  ),
+  "h2": (
+    "font-family": Gabriela,
+    "font-size": 24px,
+    "font-style": normal,
+    "font-weight": 400,
+    "line-height": 31px,
+    "letter-spacing": 0em,
+    "text-align": left,
+  ),
+  "text": (
+    "font-family": $Gab,
+    "font-size": 14px,
+    "font-style": normal,
+    "font-weight": 400,
+    "line-height": 18px,
+    "letter-spacing": 0em,
+    "text-align": center,
+  ),
+);
+
+@each $text in $texts {
+  $key: nth($text, 1);
+  $value: nth($text, 2);
+
+  .font-#{$key} {
+    @each $rule in $value {
+      $ruleKey: nth($rule, 1);
+      $ruleValue: nth($rule, 2);
+
+      #{$ruleKey}: #{$ruleValue};
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  @each $text in $texts {
+    $key: nth($text, 1);
+    $value: nth($text, 2);
+
+    .lg\:font-#{$key} {
+      @each $rule in $value {
+        $ruleKey: nth($rule, 1);
+        $ruleValue: nth($rule, 2);
+
+        #{$ruleKey}: #{$ruleValue};
+      }
+    }
+  }
+}

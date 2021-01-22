@@ -1,0 +1,45 @@
+$mainblue: #0D1933;
+$mainpink: #702C5B;
+$maingreen: #3A6355;
+$maingray: #171717;
+$mainbg: #202020;
+
+$colors: mainblue $mainblue, mainpink $mainpink, maingreen $maingreen, maingray $maingray, mainbg $mainbg;
+
+@each $color in $colors {
+  $key: nth($color, 1);
+  $value: nth($color, 2);
+
+  .text-#{"" + $key} {
+    color: #{$value};
+  }
+  .ring-#{"" + $key} {
+    border-color: #{$value};
+  }
+  .bg-#{"" + $key} {
+    background-color: #{$value};
+  }
+  .border-#{"" + $key} {
+    border-color: #{$value};
+  }
+}
+
+@media (min-width: 1024px) {
+  @each $color in $colors {
+    $key: nth($color, 1);
+    $value: nth($color, 2);
+
+    .lg\:text-#{"" + $key} {
+      color: #{$value};
+    }
+    .lg\:ring-#{"" + $key} {
+      border-color: #{$value};
+    }
+    .lg\:bg-#{"" + $key} {
+      background-color: #{$value};
+    }
+    .lg\:border-#{"" + $key} {
+      border-color: #{$value};
+    }
+  }
+}
